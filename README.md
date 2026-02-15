@@ -13,15 +13,22 @@ Interactive CLI application for managing vehicle rental summaries. Add rentals, 
 
 ### Main Menu
 
-![Main Menu](docs/screenshots/menu.png)
+Simple menu with options to add rentals, print customer receipts and generate company daily summaries.
+
+![Main Menu](src/main/resources/screenshots/1.png)
 
 ### Customer Receipt
+Add Rental Vehicle Summary:
 
-![Customer Receipt](docs/screenshots/customer-receipt.png)
+![Add Rental Vehicle Summary](src/main/resources/screenshots/2.png)
+
+Print Customer Receipt:
+
+![Print Customer Receipt](src/main/resources/screenshots/3.png)
 
 ### Company Daily Summary
-
-![Company Daily Summary](docs/screenshots/daily-summary.png)
+Print Test Company Daily Summary:
+![Company Daily Summary](src/main/resources/screenshots/4.png)
 
 ## Vehicle Types
 

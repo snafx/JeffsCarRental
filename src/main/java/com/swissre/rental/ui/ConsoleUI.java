@@ -37,6 +37,9 @@ public class ConsoleUI {
         out.printf(DISPLAY_MENU_FORMATTING_PATTERN, "1 - Add rental vehicle summary");
         out.printf(DISPLAY_MENU_FORMATTING_PATTERN, "2 - Print customer receipt");
         out.printf(DISPLAY_MENU_FORMATTING_PATTERN, "3 - Print company daily summary");
+        out.printf(DISPLAY_MENU_FORMATTING_PATTERN, "==============================================");
+        out.printf(DISPLAY_MENU_FORMATTING_PATTERN, "4 - Print test company summary");
+        out.printf(DISPLAY_MENU_FORMATTING_PATTERN, "==============================================");
         out.printf(DISPLAY_MENU_FORMATTING_PATTERN, "0 - Exit");
         out.printf(DISPLAY_MENU_FORMATTING_PATTERN, "");
         out.println(border);
@@ -49,10 +52,10 @@ public class ConsoleUI {
             String line = scanner.nextLine().trim();
             try {
                 int choice = Integer.parseInt(line);
-                if (choice >= 0 && choice <= 3) {
+                if (choice >= 0 && choice <= 4) {
                     return choice;
                 }
-                out.println("Invalid option. Please enter 0, 1, 2, or 3.");
+                out.println("Invalid option. Please enter 0, 1, 2, 3, or 4.");
             } catch (NumberFormatException e) {
                 out.println(INVALID_INPUT_PLEASE_ENTER_A_NUMBER);
             }

@@ -8,6 +8,9 @@ import com.swissre.rental.report.CompanySummaryFormatter;
 import com.swissre.rental.report.CustomerReceiptFormatter;
 import com.swissre.rental.ui.ConsoleUI;
 
+import com.swissre.rental.model.VehicleType;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -44,6 +47,7 @@ public class RentalSummaryApp {
                 case 1 -> addRental();
                 case 2 -> printCustomerReceipt();
                 case 3 -> printCompanySummary();
+                case 4 -> printTestCompanySummary();
                 case 0 -> {
                     ui.displayMessage("Goodbye!");
                     running = false;
@@ -78,6 +82,21 @@ public class RentalSummaryApp {
         }
 
         DailySummary summary = calculator.calculateDailySummary(rentals);
+        ui.displayMessage("");
+        ui.displayMessage(summaryFormatter.formatSummary(summary));
+    }
+
+    private void printTestCompanySummary() {
+        List<VehicleRental> testRentals = List.of(
+                new VehicleRental(VehicleType.E_VAN, new BigDecimal("95"), new BigDecimal("20"),
+                        true, 3, BigDecimal.ZERO),
+                new VehicleRental(VehicleType.COMPACT_VAN, new BigDecimal("40"), new BigDecimal("5"),
+                        false, 0, BigDecimal.ZERO),
+                new VehicleRental(VehicleType.LARGE_VAN, new BigDecimal("180"), new BigDecimal("15"),
+                        false, 0, new BigDecimal("30"))
+        );
+
+        DailySummary summary = calculator.calculateDailySummary(testRentals);
         ui.displayMessage("");
         ui.displayMessage(summaryFormatter.formatSummary(summary));
     }
