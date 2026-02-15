@@ -8,6 +8,13 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Formats an ASCII-bordered customer receipt for a single {@link CostBreakdown}.
+ *
+ * <p>Renders vehicle details, conditionally visible charge lines (vignette, Gubrist,
+ * congestion, eco-bonus), and the total. Accepts {@link LocalDate} in the constructor
+ * so tests can pin the date for deterministic output.</p>
+ */
 public class CustomerReceiptFormatter {
 
     private static final int WIDTH = 50;

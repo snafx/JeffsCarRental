@@ -17,6 +17,15 @@ import java.util.Scanner;
 
 import static com.swissre.rental.util.Constants.NO_RENTALS_ADDED_YET;
 
+/**
+ * Application entry point and interactive main loop.
+ *
+ * <p>Owns the in-memory rental list and orchestrates the menu-driven workflow:
+ * adding rentals, printing customer receipts, and generating company daily summaries.
+ * All collaborators ({@link ConsoleUI}, {@link CostCalculator},
+ * {@link CustomerReceiptFormatter}, {@link CompanySummaryFormatter}) are injected
+ * via the constructor for testability.</p>
+ */
 public class RentalSummaryApp {
 
     private final ConsoleUI ui;

@@ -2,6 +2,7 @@ package com.swissre.rental.model;
 
 import java.math.BigDecimal;
 
+/** Available vehicle types with per-km rates, energy rates, and display units. */
 public enum VehicleType {
 
     COMPACT_VAN("0.82", "1.95", "L", "Compact Van"),

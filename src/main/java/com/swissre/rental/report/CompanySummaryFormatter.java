@@ -10,6 +10,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * Formats an ASCII wide-table company daily summary from a {@link DailySummary}.
+ *
+ * <p>Lists every rental with a vehicle header, itemized charges, and subtotal,
+ * followed by the grand total. Accepts {@link LocalDate} in the constructor
+ * so tests can pin the date for deterministic output.</p>
+ */
 public class CompanySummaryFormatter {
 
     private static final int WIDTH = 118;

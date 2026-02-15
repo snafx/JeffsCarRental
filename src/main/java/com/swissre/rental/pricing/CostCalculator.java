@@ -9,6 +9,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 
+/**
+ * Stateless pricing engine — calculates distance, energy, vignette, Gubrist toll, city congestion, and eco-bonus.
+ */
 public class CostCalculator {
 
     private static final BigDecimal VIGNETTE_COST = new BigDecimal("9.00");
@@ -24,26 +27,16 @@ public class CostCalculator {
     private static final RoundingMode ROUNDING = RoundingMode.HALF_UP;
 
     public CostBreakdown calculate(VehicleRental rental) {
-        BigDecimal distanceCost = rental.kilometersDriven()
-                .multiply(rental.vehicleType().ratePerKm())
-                .setScale(SCALE, ROUNDING);
+        BigDecimal distanceCost = rental.kilometersDriven().multiply(rental.vehicleType().ratePerKm()).setScale(SCALE, ROUNDING);
 
-        BigDecimal energyCost = rental.energyConsumed()
-                .multiply(rental.vehicleType().energyRate())
-                .setScale(SCALE, ROUNDING);
+        BigDecimal energyCost = rental.energyConsumed().multiply(rental.vehicleType().energyRate()).setScale(SCALE, ROUNDING);
 
-        BigDecimal vignetteCost = rental.motorwayVignette()
-                ? VIGNETTE_COST
-                : BigDecimal.ZERO.setScale(SCALE, ROUNDING);
+        BigDecimal vignetteCost = rental.motorwayVignette() ? VIGNETTE_COST : BigDecimal.ZERO.setScale(SCALE, ROUNDING);
 
         int paidPassages = Math.min(rental.gubristTunnelPassages(), GUBRIST_MAX_PAID);
-        BigDecimal gubristCost = GUBRIST_COST_PER_PASSAGE
-                .multiply(BigDecimal.valueOf(paidPassages))
-                .setScale(SCALE, ROUNDING);
+        BigDecimal gubristCost = GUBRIST_COST_PER_PASSAGE.multiply(BigDecimal.valueOf(paidPassages)).setScale(SCALE, ROUNDING);
 
-        BigDecimal congestionCost = rental.cityKilometers()
-                .multiply(CONGESTION_RATE_PER_KM)
-                .setScale(SCALE, ROUNDING);
+        BigDecimal congestionCost = rental.cityKilometers().multiply(CONGESTION_RATE_PER_KM).setScale(SCALE, ROUNDING);
 
         BigDecimal ecoBonus = calculateEcoBonus(rental);
 
@@ -54,8 +47,7 @@ public class CostCalculator {
                 .add(congestionCost)
                 .add(ecoBonus);
 
-        return new CostBreakdown(rental, distanceCost, energyCost, vignetteCost,
-                gubristCost, congestionCost, ecoBonus, subtotal);
+        return new CostBreakdown(rental, distanceCost, energyCost, vignetteCost, gubristCost, congestionCost, ecoBonus, subtotal);
     }
 
     public DailySummary calculateDailySummary(List<VehicleRental> rentals) {

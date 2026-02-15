@@ -1,5 +1,6 @@
 package com.swissre.rental.util;
 
+/** Shared string constants used across the application. */
 public class Constants {
 
     public static final String NO_RENTALS_ADDED_YET = "No rentals added yet.";

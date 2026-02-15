@@ -10,6 +10,14 @@ import java.util.Scanner;
 
 import static com.swissre.rental.util.Constants.*;
 
+/**
+ * Handles all console interaction — banner, menu, rental prompts, and output display.
+ *
+ * <p>Accepts {@link java.util.Scanner} and {@link java.io.PrintStream} via the constructor,
+ * so tests can feed simulated input and capture output without touching
+ * {@code System.in}/{@code System.out}. All user-facing input loops validate
+ * and re-prompt until valid data is provided.</p>
+ */
 public class ConsoleUI {
 
     private final Scanner scanner;

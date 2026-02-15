@@ -3,6 +3,7 @@ package com.swissre.rental.model;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+/** Immutable rental input data with validation of all invariants in the compact constructor. */
 public record VehicleRental(
         VehicleType vehicleType,
         BigDecimal kilometersDriven,

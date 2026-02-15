@@ -6,7 +6,7 @@
 
     <groupId>com.swissre</groupId>
     <artifactId>jeffs_car_rental</artifactId>
-    <version>26.02.13.001</version>
+    <version>26.02.15.002</version>
     <name>Jeff's Car Rental</name>
 
     <properties>

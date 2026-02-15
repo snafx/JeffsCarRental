@@ -7,6 +7,12 @@ import com.swissre.rental.model.VehicleType;
 
 import java.math.BigDecimal;
 
+/**
+ * Compact plain-text summary formatter for a {@link DailySummary}.
+ *
+ * <p>Produces a minimal, no-border output with one line per rental and a grand total.
+ * Used primarily in unit tests for easy assertion on calculated values.</p>
+ */
 public class SummaryFormatter {
 
     public String format(DailySummary summary) {
